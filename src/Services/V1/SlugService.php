@@ -33,7 +33,7 @@ class SlugService extends BaseService implements SlugServiceInterface
             SlugType::PRODUCT => app(config('callmeaf-product.service')),
             default => null,
         };
-        $slug = Str::of($value)->slug(language: null)->toString();
+        $slug = Str::of($value)->slug(language: null)->limit(limit: config('callmeaf-slug.max_length'),end: '')->toString();
          $service->where(column: 'slug',valueOrOperation: $slug);
         if($ignore) {
             $service->whereNot(column: 'id',valueOrOperation: $ignore);

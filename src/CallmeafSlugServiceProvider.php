@@ -17,6 +17,7 @@ class CallmeafSlugServiceProvider extends ServiceProvider
     private const LANG_GROUP = 'callmeaf-slug-lang';
     public function boot()
     {
+        require_once( __DIR__ . '/helpers.php');
         $this->registerConfig();
 
         $this->registerRoute();

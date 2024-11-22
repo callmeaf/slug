@@ -5,6 +5,9 @@ return [
     'model_resource' => \Callmeaf\Slug\Http\Resources\V1\Api\SlugResource::class,
     'model_resource_collection' => \Callmeaf\Slug\Http\Resources\V1\Api\SlugCollection::class,
     'service' => \Callmeaf\Slug\Services\V1\SlugService::class,
+    // slug max length mines -2 for make sure appended slug does not far from length
+    // example: if you want max length slug to 80, set this value to 78
+    'max_length' => 78,
     'default_values' => [
         //
     ],
