@@ -12,7 +12,12 @@ return [
         //
     ],
     'events' => [
-        //
+        \Callmeaf\Slug\Events\SlugIndexed::class => [
+            // listeners
+        ],
+        \Callmeaf\Slug\Events\SlugShowed::class => [
+            // listeners
+        ],
     ],
     'validations' => [
         'slug' => \Callmeaf\Slug\Utilities\V1\Api\Slug\SlugFormRequestValidator::class,
