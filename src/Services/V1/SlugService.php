@@ -31,6 +31,10 @@ class SlugService extends BaseService implements SlugServiceInterface
          */
         $service = match ($type) {
             SlugType::PRODUCT => app(config('callmeaf-product.service')),
+            SlugType::PRODUCT_CATEGORY => app(config('callmeaf-product-category.service')),
+            SlugType::CONTINENT => app(config('callmeaf-continent.service')),
+            SlugType::COUNTRY => app(config('callmeaf-country.service')),
+            SlugType::PROVINCE => app(config('callmeaf-province.service')),
             default => null,
         };
         $slug = Str::of($value)->slug(language: null)->limit(limit: config('callmeaf-slug.max_length'),end: '')->toString();
