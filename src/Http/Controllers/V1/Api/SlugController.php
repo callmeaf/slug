@@ -18,8 +18,12 @@ class SlugController extends ApiController
     protected SlugResources $slugResources;
     public function __construct()
     {
-        app(config('callmeaf-slug.middlewares.slug'))($this);
         $this->slugService = app(config('callmeaf-slug.service'));
+    }
+
+    public static function middleware(): array
+    {
+        return app(config('callmeaf-slug.middlewares.slug'))();
     }
 
     public function index(SlugIndexRequest $request)
